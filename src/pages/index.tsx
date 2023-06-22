@@ -8,7 +8,7 @@ const LandingPage = () => {
   const router = useRouter()
   return (
     <Page title="Home">
-      <div className="container mx-auto pt-10">
+      <div className="container mx-auto pt-10 px-5">
         <h1 className="font-bold">Selamat Datang di Test Code Sinar Digital Nusantara</h1>
         <p>by: Nur Ahmadi</p>
         <BaseButton onClick={() => {

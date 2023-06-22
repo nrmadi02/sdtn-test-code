@@ -95,11 +95,11 @@ const FormNewCategory = () => {
       id="editnewarticle"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <div className="col-span-1">
+      <div className="col-span-1 hidden md:block">
         <h1 className=" text-[20px] font-bold ">Details</h1>
         <p className="text-gray-400">Title, description, sampul, content...</p>
       </div>
-      <div className=" col-span-2 flex w-full flex-col gap-3 rounded-xl border-[1px] border-gray-300 border-opacity-50 p-5 shadow-md md:grid-cols-2">
+      <div className="col-span-1  flex w-full flex-col gap-3 rounded-xl border-[1px] border-gray-300 border-opacity-50 p-5 shadow-md md:col-span-2 md:grid-cols-2">
         <RHFInputText
           title="Title"
           placeholder="Title"
@@ -115,7 +115,12 @@ const FormNewCategory = () => {
           {...register("description")}
         />
 
-        <RHFEditor title="Content" error={errors.content?.message} control={control} name="content"  />
+        <RHFEditor
+          title="Content"
+          error={errors.content?.message}
+          control={control}
+          name="content"
+        />
 
         <div>
           <RHFInputText
@@ -149,11 +154,11 @@ const FormNewCategory = () => {
           )}
         </div>
       </div>
-      <div className="col-span-1">
+      <div className="col-span-1 hidden md:block">
         <h1 className=" text-[20px] font-bold ">Properties</h1>
         <p className="text-gray-400">Category, status...</p>
       </div>
-      <div className=" col-span-2 flex w-full flex-col gap-3 rounded-xl border-[1px] border-gray-300 border-opacity-50 p-5 shadow-md md:grid-cols-2">
+      <div className="col-span-1 md:col-span-2 flex w-full flex-col gap-3 rounded-xl border-[1px] border-gray-300 border-opacity-50 p-5 shadow-md md:grid-cols-2">
         <RHFMultiSelect
           name="categories"
           options={dataOption}
@@ -174,7 +179,7 @@ const FormNewCategory = () => {
           <option value={"PINNED"}>PINNED</option>
         </RHFSelect>
       </div>
-      <div className="col-span-3 flex flex-row justify-end">
+      <div className="col-span-1 md:col-span-3 flex flex-row justify-end">
         <BaseButton
           disabled={isSubmitting}
           isLoading={isSubmitting}
