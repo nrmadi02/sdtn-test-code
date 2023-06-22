@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('./utils/utils.css');
+@import url('./select/index.css');
+@import url('./editor/index.css');
+
+html {
+    font-family: 'Public Sans', sans-serif;
+}

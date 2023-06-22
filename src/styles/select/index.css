@@ -1,0 +1,8 @@
+.select__control {
+    @apply !h-[40px] !shadow-none focus-within:!border-emerald-500 !border-gray-200 !rounded-[8px] !border-[2px] !outline-none !transition !duration-150 !ease-in-out;
+    
+}
+
+.multi-select-error .select__control {
+ @apply !h-[40px] !shadow-none focus-within:!border-red-500 !border-red-500 !rounded-[8px] !border-[2px] !outline-none !transition !duration-150 !ease-in-out;
+}
