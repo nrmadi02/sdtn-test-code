@@ -1,15 +1,14 @@
 import {
-  ColumnDef,
-  PaginationState,
-  Row,
+  type ColumnDef,
+  type PaginationState,
+  type Row,
   flexRender,
   getCoreRowModel,
   useReactTable,
-  Table as ReactTable,
-  OnChangeFn,
+  type Table as ReactTable,
+  type OnChangeFn,
 } from "@tanstack/react-table";
-import { Fragment, PropsWithChildren } from "react";
-import classNames from "classnames";
+import { Fragment, type PropsWithChildren } from "react";
 import { BaseButton } from "../Button";
 import Spinner from "../Spinner";
 
@@ -28,13 +27,10 @@ interface ReactListProps<T extends object> {
 const ListReactArticle = <T extends object>({
   data,
   columns,
-  renderSubComponent,
   pagination,
   pageCount,
-  className,
   setPagination,
   isLoading,
-  thLength,
 }: ReactListProps<T>) => {
   const table = useReactTable({
     data,

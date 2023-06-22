@@ -1,8 +1,7 @@
-import { useState, useEffect, type ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 
 import { useRouter } from "next/router";
 import useAuth from "@/hooks/useAuth";
-import LoadingScreen from "@/components/LoadingScreen";
 import { PATH_DASHBOARD } from "@/routes";
 
 interface Props {
@@ -16,8 +15,9 @@ const GuestGuard = ({ children }: Props) => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      push(PATH_DASHBOARD.root).catch(_ => "error router...");
+      push(PATH_DASHBOARD.root).catch((_) => "error router...");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
 
   return <>{children}</>;

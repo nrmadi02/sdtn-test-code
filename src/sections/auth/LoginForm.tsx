@@ -66,11 +66,11 @@ const LoginForm = () => {
         />
         <div className="flex w-full flex-row justify-end">
           <p
-            onClick={() =>
-              push(PATH_AUTH.resetPassword).catch((_) =>
-                console.log("route failed....")
-              )
-            }
+            // onClick={() =>
+            //   push(PATH_AUTH.resetPassword).catch((_) =>
+            //     console.log("route failed....")
+            //   )
+            // }
             className="cursor-pointer rounded-md p-1 text-[12px] transition-all hover:bg-gray-200 "
           >
             Lupa password?

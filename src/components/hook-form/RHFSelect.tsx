@@ -1,4 +1,4 @@
-import { forwardRef, LegacyRef, type InputHTMLAttributes, ReactNode, SelectHTMLAttributes } from "react";
+import { forwardRef, type LegacyRef, type InputHTMLAttributes, ReactNode, SelectHTMLAttributes } from "react";
 
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 

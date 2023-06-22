@@ -1,14 +1,6 @@
-import {
-  forwardRef,
-  LegacyRef,
-  type InputHTMLAttributes,
-  ReactNode,
-  SelectHTMLAttributes,
-} from "react";
 
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import Select from "react-select";
-import { Control, Controller, FieldValues, useForm } from "react-hook-form";
+import { Control, Controller } from "react-hook-form";
 import Editor from "../Editor";
 
 interface Props {
@@ -22,7 +14,6 @@ interface Props {
 const RHFEditor = ({
   title,
   error,
-  className,
   name,
   control,
 }: Props) => {
@@ -35,7 +26,7 @@ const RHFEditor = ({
         control={control}
         defaultValue={""}
         name={name}
-        render={({ field: { onChange, value, ref } }) => (
+        render={({ field: { onChange, value } }) => (
           <Editor onChange={onChange} value={String(value)} />
         )}
       />

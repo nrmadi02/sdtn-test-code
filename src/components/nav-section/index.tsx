@@ -1,4 +1,4 @@
-import { NavConfig } from "@/layout/dashboard/navbar/NavConfig";
+import { type NavConfig } from "@/layout/dashboard/navbar/NavConfig";
 import Link from "next/link";
 import { useRouter } from "next/router";
 

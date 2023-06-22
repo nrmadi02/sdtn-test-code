@@ -1,7 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios"
 import { useSnackbar } from "notistack";
-import { useState } from "react";
 
 interface uploadImage {
   url: string;
@@ -28,7 +27,7 @@ const useUploadImage = () => {
 
   const { mutateAsync: uploadNewImage, isLoading, isSuccess, data } = useMutation({
     mutationFn: async (data: FormData) => await uploadImageFn(data),
-    onSuccess: (data) => {
+    onSuccess: () => {
       enqueueSnackbar("Upload success!", {
         variant: "success",
       });

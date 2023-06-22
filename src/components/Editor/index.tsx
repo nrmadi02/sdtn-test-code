@@ -1,5 +1,4 @@
-import axios from "axios";
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useQuill } from "react-quilljs";
 import "quill/dist/quill.snow.css";
 import useUploadImage from "@/hooks/useUploadImage";
@@ -11,7 +10,7 @@ interface Props {
 
 const Editor = ({ onChange, value }: Props) => {
 
-  const {data, isLoading, isSuccess, onHandleChange} = useUploadImage()
+  const {data, onHandleChange} = useUploadImage()
 
   const selectLocalImage = () => {
     const input = document.createElement("input");
@@ -76,24 +75,27 @@ const Editor = ({ onChange, value }: Props) => {
 
 
   useEffect(() => {
-    if(data){
+    if (data) {
       data.url && insertToEditor(data.url);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data])
 
   useEffect(() => {
     if (quill) {
       // quill.getModule("toolbar").addHandler("image", selectLocalImage);
-      quill.on("text-change", (delta, oldDelta, source) => {
+      quill.on("text-change", () => {
         onChange(quill.root.innerHTML);
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quill]);
 
   useEffect(() => {
     if (quill) {
       value && quill.clipboard.dangerouslyPasteHTML(value);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quill]);
 
   return (

@@ -1,14 +1,14 @@
 import {
-  ColumnDef,
-  PaginationState,
-  Row,
+  type ColumnDef,
+  type PaginationState,
+  type Row,
   flexRender,
   getCoreRowModel,
   useReactTable,
-  Table as ReactTable,
-  OnChangeFn,
+  type Table as ReactTable,
+  type OnChangeFn,
 } from "@tanstack/react-table";
-import { Fragment, PropsWithChildren, useEffect, useState } from "react";
+import { Fragment, type PropsWithChildren } from "react";
 import classNames from "classnames";
 import { BaseButton } from "../Button";
 import Spinner from "../Spinner";

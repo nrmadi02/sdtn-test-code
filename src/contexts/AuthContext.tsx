@@ -1,5 +1,5 @@
 import { getDetailMe } from "@/service/auth";
-import type { IResponseAuth, IResponseToken, IUser } from "@/types";
+import type { IResponseAuth, IUser } from "@/types";
 import axiosInstance from "@/utils/axios";
 import axios from "@/utils/axios";
 import {

@@ -1,5 +1,5 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, ReactNode, useState } from "react";
+import { Fragment, type ReactNode } from "react";
 
 interface Props {
   openModal: () => void,

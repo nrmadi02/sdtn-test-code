@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, ReactElement, ReactNode } from "react";
+import type { ButtonHTMLAttributes, ReactElement, ReactNode } from "react";
 
 type VariantButton = "red" | "ghost";
 

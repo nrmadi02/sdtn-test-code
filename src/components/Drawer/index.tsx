@@ -1,22 +1,17 @@
-import { Dispatch, Fragment, ReactNode, SetStateAction } from "react";
+import { Dispatch, Fragment, type ReactNode, type SetStateAction } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { BaseButton } from "../Button";
 
 type DrawerProps = {
-  title?: string;
-  description?: string;
   children: ReactNode;
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
 
-export default function Drawer({
-  title = "",
-  description = "",
-  children,
+const Drawer = ({
+children,
   isOpen,
   setIsOpen,
-}: DrawerProps) {
+}: DrawerProps) => {
   return (
     <Transition show={isOpen} as={Fragment}>
       <Dialog
@@ -59,3 +54,5 @@ export default function Drawer({
     </Transition>
   );
 }
+
+export default Drawer

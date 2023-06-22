@@ -2,7 +2,7 @@ import {
   useState,
   type InputHTMLAttributes,
   forwardRef,
-  LegacyRef,
+  type LegacyRef,
 } from "react";
 
 import { useAutoAnimate} from "@formkit/auto-animate/react"
