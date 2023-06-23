@@ -14,8 +14,8 @@ const HeaderDashboard = () => {
     setIsOpen(false)
   }, [router])
     return (
-      <div className="flex h-20 w-full flex-row items-center justify-between border-b border-gray-200 pl-5">
-        <BaseButton onClick={() => setIsOpen(!isOpen)} variant="ghost">
+      <div className="flex h-20 w-full flex-row items-center justify-between md:justify-end border-b border-gray-200 pl-5">
+        <BaseButton className="md:hidden" onClick={() => setIsOpen(!isOpen)} variant="ghost">
           <MdMenu size={20} />
         </BaseButton>
         <AccountInformation />
