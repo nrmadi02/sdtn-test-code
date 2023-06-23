@@ -1,4 +1,4 @@
-import { UserEditSchema, UserNewSchema } from "@/schema/user.shcema";
+import type { UserEditSchema, UserNewSchema } from "@/schema/user.shcema";
 import type { IPaginationUser, IResponseBase, IResponseList, IUser } from "@/types";
 import axios from "@/utils/axios";
 

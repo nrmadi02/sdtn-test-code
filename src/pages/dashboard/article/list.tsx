@@ -3,16 +3,16 @@ import { BaseButton } from "@/components/Button";
 import Page from "@/components/Page";
 import Layout from "@/layout";
 import { PATH_DASHBOARD } from "@/routes";
-import { IPaginationArticle } from "@/types";
+import { type IPaginationArticle } from "@/types";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { PaginationState } from "@tanstack/react-table";
+import { type PaginationState } from "@tanstack/react-table";
 import Link from "next/link";
 import { useDebounce } from "usehooks-ts";
 import {
   useState,
   type ReactNode,
   useMemo,
-  ChangeEvent,
+  type ChangeEvent,
   useEffect,
 } from "react";
 import { useRouter } from "next/router";
@@ -54,7 +54,7 @@ const ArticleList = () => {
     isLoading,
     refetch,
   } = useQuery(["allArticles", searchParams, pageIndex, pageSize], {
-    queryFn: async (ctx) =>
+    queryFn: async () =>
       await getArticleListFn({
         ...searchParams,
         limit: pageSize,
@@ -125,8 +125,8 @@ const ArticleList = () => {
     await refetch();
   };
 
-  const handleViewData = (id: string, slug: string) => {
-    push(PATH_DASHBOARD.article.view(id, slug)).catch((_) =>
+  const handleViewData = (id: string) => {
+    push(PATH_DASHBOARD.article.view(id)).catch((_) =>
       console.log("err router...")
     );
   };

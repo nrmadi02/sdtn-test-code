@@ -1,10 +1,10 @@
 import { BaseButton } from "@/components/Button";
 import Modal from "@/components/Modal";
 import ListReactArticle from "@/components/TSListReactArticle";
-import { IArticle } from "@/types";
+import { type IArticle } from "@/types";
 import {
-  OnChangeFn,
-  PaginationState,
+   type OnChangeFn,
+  type PaginationState,
   createColumnHelper,
 } from "@tanstack/react-table";
 import { useMemo, useState } from "react";
@@ -43,7 +43,7 @@ const ListArticle = ({
   const dataUsers = useMemo(() => getData(data ? data : []), [data]);
   const columnHelper = createColumnHelper<IArticle>();
 
-  const { data: dataCategories, isLoading: isLoadingCategory } = useQuery(
+  const { data: dataCategories } = useQuery(
     ["AllCategories"],
     {
       queryFn: async () => await getAllCategoryFn(),
@@ -70,6 +70,8 @@ const ListArticle = ({
         },
       }),
     ],
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [data, dataCategories]
   );
   return (

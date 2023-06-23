@@ -1,9 +1,9 @@
 import { BaseButton } from "@/components/Button";
 import { RHFInputText } from "@/components/hook-form";
 import { PATH_DASHBOARD } from "@/routes";
-import { CategoryEditSchema, categoryEditSchema } from "@/schema/category.schema";
+import { type CategoryEditSchema, categoryEditSchema } from "@/schema/category.schema";
 import { editCategoryFn } from "@/service/category";
-import { ICategory } from "@/types";
+import { type ICategory } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/router";

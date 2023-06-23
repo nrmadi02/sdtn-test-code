@@ -1,5 +1,5 @@
-import { ArticleEditSchema, ArticleNewSchema } from "@/schema/article.schema";
-import {
+import type { ArticleEditSchema, ArticleNewSchema } from "@/schema/article.schema";
+import type {
   IArticle,
   IPaginationArticle,
   IResponseBase,
@@ -8,7 +8,7 @@ import {
 import axios from "@/utils/axios";
 
 const getCategoriesArticle = (data: string[]) => {
-  const dataArr = data.map((item, idx) => {
+  const dataArr = data.map((item) => {
     return `categories=${item}`;
   });
 

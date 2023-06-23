@@ -1,4 +1,4 @@
-import { TypeOf, z } from "zod";
+import { type TypeOf, z } from "zod";
 
 export const articleNewSchema = z.object({
   title: z.string().min(1, "Title is required!"),

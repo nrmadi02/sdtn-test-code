@@ -9,6 +9,7 @@ const Index = () => {
     if (pathname === PATH_DASHBOARD.category.root) {
       push(PATH_DASHBOARD.category.list).catch((_) => "err router...");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   return null;

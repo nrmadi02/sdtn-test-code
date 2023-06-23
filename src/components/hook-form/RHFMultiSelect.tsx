@@ -1,6 +1,6 @@
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import Select from "react-select";
-import { Control, Controller } from "react-hook-form";
+import { type Control, Controller } from "react-hook-form";
 
 interface Props {
   title?: string;

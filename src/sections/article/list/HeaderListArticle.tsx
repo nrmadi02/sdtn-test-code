@@ -1,9 +1,9 @@
 import { ActionButton } from "@/components/Button";
-import { RHFInputTextSearch, RHFSelect } from "@/components/hook-form";
+import { RHFInputTextSearch } from "@/components/hook-form";
 import { getAllCategoryFn } from "@/service/category";
 import { Popover, Transition } from "@headlessui/react";
 import { useQuery } from "@tanstack/react-query";
-import { ChangeEventHandler, Fragment, useMemo } from "react";
+import { type ChangeEventHandler, Fragment, useMemo } from "react";
 import { MdSort } from "react-icons/md";
 import Select from "react-select";
 
@@ -23,12 +23,12 @@ const HeaderListArticle = ({
   onHandleSearchCategory,
 }: Props) => {
   const { data: dataCategory } = useQuery(["AllCategory"], {
-    queryFn: async (ctx) => await getAllCategoryFn(),
+    queryFn: async () => await getAllCategoryFn(),
     // keepPreviousData: true,
   });
 
   const dataOption = useMemo(() => {
-    return dataCategory?.data.docs.map((item, idx) => {
+    return dataCategory?.data.docs.map((item) => {
       return {
         value: item._id,
         label: item.name,
@@ -51,7 +51,7 @@ const HeaderListArticle = ({
           <Select
             isMulti
             onChange={(e) => {
-              const dataArr = e.map((item, idx) => {
+              const dataArr = e.map((item) => {
                 return item.value
               })
               onHandleSearchCategory(dataArr)

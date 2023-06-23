@@ -2,10 +2,10 @@ import { ActionButton, BaseButton } from "@/components/Button";
 import Modal from "@/components/Modal";
 import Table from "@/components/TSTableReact";
 import Popover from "@/components/TSTableReact/TableAction";
-import { IUser } from "@/types";
+import { type IUser } from "@/types";
 import {
-  OnChangeFn,
-  PaginationState,
+  type OnChangeFn,
+  type PaginationState,
   createColumnHelper,
 } from "@tanstack/react-table";
 import moment from "moment";
@@ -84,7 +84,7 @@ const TableRowUserList = ({
           );
         },
       }),
-      columnHelper.accessor('_id', {
+      columnHelper.accessor("_id", {
         id: "id",
         header: "",
         size: 20,
@@ -123,6 +123,7 @@ const TableRowUserList = ({
         },
       }),
     ],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [data]
   );
   return (

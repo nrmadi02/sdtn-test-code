@@ -3,7 +3,7 @@ import {
   RHFInputText,
 } from "@/components/hook-form";
 import { PATH_DASHBOARD } from "@/routes";
-import { CategoryNewSchema, categoryNewSchema } from "@/schema/category.schema";
+import { type CategoryNewSchema, categoryNewSchema } from "@/schema/category.schema";
 import { addNewCategoryFn } from "@/service/category";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";

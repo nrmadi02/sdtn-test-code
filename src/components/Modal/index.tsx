@@ -2,15 +2,14 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, type ReactNode } from "react";
 
 interface Props {
-  openModal: () => void,
-  closeModal: () => void,
-  isOpen: boolean,
-  title: string,
-  children: ReactNode
+  openModal: () => void;
+  closeModal: () => void;
+  isOpen: boolean;
+  title: string;
+  children: ReactNode;
 }
 
-const Modal = ({closeModal, isOpen, openModal, children, title}:Props) => {
-
+const Modal = ({ closeModal, isOpen, children, title }: Props) => {
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -54,6 +53,6 @@ const Modal = ({closeModal, isOpen, openModal, children, title}:Props) => {
       </Transition>
     </>
   );
-}
+};
 
-export default Modal
+export default Modal;

@@ -13,7 +13,7 @@ const CategoryEditPage = () => {
   const { data: dataCategory, isLoading } = useQuery(
     ["detailCategory", query.slug],
     {
-      queryFn: async (ctx) => await getCategoryDetailFn(String(query.slug)),
+      queryFn: async () => await getCategoryDetailFn(String(query.slug)),
     }
   );
 

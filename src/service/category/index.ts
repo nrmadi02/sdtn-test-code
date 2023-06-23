@@ -1,8 +1,8 @@
-import {
+import type {
   CategoryEditSchema,
   CategoryNewSchema,
 } from "@/schema/category.schema";
-import {
+import type {
   ICategory,
   IPaginationCategory,
   IResponseBase,

@@ -1,4 +1,4 @@
-import { TypeOf, z } from "zod";
+import { type TypeOf, z } from "zod";
 
 export const categoryNewSchema = z.object({
   name: z.string().min(1, "Name is required!"),

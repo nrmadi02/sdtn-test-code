@@ -36,6 +36,6 @@ export const PATH_DASHBOARD = {
     list: path(ROOTS_DASHBOARD, `/article/list`),
     new: path(ROOTS_DASHBOARD, `/article/new`),
     edit: (id: string) => path(ROOTS_DASHBOARD, `/article/${id}/edit`),
-    view: (id: string, slug: string) => path(ROOTS_DASHBOARD, `/article/${id}/view`),
+    view: (id: string) => path(ROOTS_DASHBOARD, `/article/${id}/view`),
   },
 };

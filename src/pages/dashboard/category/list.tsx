@@ -4,16 +4,16 @@ import Page from "@/components/Page";
 import TableSection from "@/components/TableSection";
 import Layout from "@/layout";
 import { PATH_DASHBOARD } from "@/routes";
-import { IPaginationCategory } from "@/types";
+import { type IPaginationCategory } from "@/types";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { PaginationState } from "@tanstack/react-table";
+import { type PaginationState } from "@tanstack/react-table";
 import Link from "next/link";
 import {useDebounce } from "usehooks-ts";
 import {
   useState,
   type ReactNode,
   useMemo,
-  ChangeEvent,
+  type ChangeEvent,
   useEffect,
 } from "react";
 import { useRouter } from "next/router";
@@ -48,7 +48,7 @@ const CategoryList = () => {
     isLoading,
     refetch,
   } = useQuery(["allCategories", searchParams, pageIndex, pageSize], {
-    queryFn: async (ctx) =>
+    queryFn: async () =>
       await getCategoryListFn({
         ...searchParams,
         limit: pageSize,

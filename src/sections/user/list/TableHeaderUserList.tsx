@@ -1,7 +1,7 @@
 import { RHFInputTextSearch, RHFSelect } from "@/components/hook-form";
 import { getRoleListFn } from "@/service/role";
 import { useQuery } from "@tanstack/react-query";
-import { ChangeEventHandler } from "react";
+import { type ChangeEventHandler } from "react";
 
 interface Props {
   onChangeSelectRole: ChangeEventHandler<HTMLSelectElement> | undefined;
@@ -21,7 +21,7 @@ const TableHeaderUserList = ({
   valueRole,
 }: Props) => {
   const { data: dataRoles } = useQuery(["allRoles"], {
-    queryFn: async (ctx) => await getRoleListFn(),
+    queryFn: async () => await getRoleListFn(),
     // keepPreviousData: true,
   });
   return (

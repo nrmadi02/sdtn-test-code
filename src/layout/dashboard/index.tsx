@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { type ReactNode } from "react";
 import NavbarVertival from "./navbar/NavbarVertical";
 import HeaderDashboard from "./header";
 

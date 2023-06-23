@@ -8,14 +8,14 @@ import {
 } from "@/components/hook-form";
 import useUploadImage from "@/hooks/useUploadImage";
 import { PATH_DASHBOARD } from "@/routes";
-import { userNewSchema, UserNewSchema } from "@/schema/user.shcema";
+import { userNewSchema, type UserNewSchema } from "@/schema/user.shcema";
 import { getRoleListFn } from "@/service/role";
 import { addNewUserFn } from "@/service/user";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import { useSnackbar } from "notistack";
-import { ChangeEvent, useEffect, useState } from "react";
+import { type ChangeEvent, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { IoMdAdd } from "react-icons/io";
 
@@ -28,7 +28,6 @@ const FormNewUser = () => {
      onHandleChange: onHandleUploadImage,
      data,
      isLoading,
-     isSuccess,
    } = useUploadImage();
 
     const handleChangeFile = async (
@@ -57,7 +56,7 @@ const FormNewUser = () => {
   } = method;
 
   const { data: dataRoles } = useQuery(["allRoles"], {
-    queryFn: async (ctx) => await getRoleListFn(),
+    queryFn: async () => await getRoleListFn(),
   });
 
   const { mutateAsync: addNewUser } = useMutation({
@@ -89,6 +88,7 @@ const FormNewUser = () => {
        data && setFile(data.url);
        setValue("avatar", data.url);
      }
+     // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [data]);
 
   return (

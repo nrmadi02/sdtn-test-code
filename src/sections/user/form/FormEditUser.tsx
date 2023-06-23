@@ -3,15 +3,15 @@ import Spinner from "@/components/Spinner";
 import { RHFInputText, RHFSelect, RHFTextarea } from "@/components/hook-form";
 import useUploadImage from "@/hooks/useUploadImage";
 import { PATH_DASHBOARD } from "@/routes";
-import { userEditSchema, UserEditSchema } from "@/schema/user.shcema";
+import { userEditSchema, type UserEditSchema } from "@/schema/user.shcema";
 import { getRoleListFn } from "@/service/role";
 import { editUserFn } from "@/service/user";
-import { IUser } from "@/types";
+import { type IUser } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import { useSnackbar } from "notistack";
-import { ChangeEvent, useEffect, useMemo, useState } from "react";
+import { type ChangeEvent, useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { IoMdAdd } from "react-icons/io";
 
@@ -30,7 +30,6 @@ const FormEditUser = ({ currentUser }: Props) => {
     onHandleChange: onHandleUploadImage,
     data,
     isLoading,
-    isSuccess,
   } = useUploadImage();
 
   const handleChangeFile = async (
@@ -76,7 +75,7 @@ const FormEditUser = ({ currentUser }: Props) => {
   } = method;
 
   const { data: dataRoles } = useQuery(["allRoles"], {
-    queryFn: async (ctx) => await getRoleListFn(),
+    queryFn: async () => await getRoleListFn(),
   });
 
   const { mutateAsync: editUser } = useMutation({
@@ -108,6 +107,8 @@ const FormEditUser = ({ currentUser }: Props) => {
        data && setFile(data.url);
        setValue("avatar", data.url);
      }
+
+     // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [data]);
 
   return (

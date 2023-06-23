@@ -2,10 +2,10 @@ import { ActionButton, BaseButton } from "@/components/Button";
 import Modal from "@/components/Modal";
 import Table from "@/components/TSTableReact";
 import Popover from "@/components/TSTableReact/TableAction";
-import { ICategory } from "@/types";
+import { type ICategory } from "@/types";
 import {
-  OnChangeFn,
-  PaginationState,
+  type OnChangeFn,
+  type PaginationState,
   createColumnHelper,
 } from "@tanstack/react-table";
 import { useMemo, useState } from "react";
@@ -31,7 +31,6 @@ const TableRowCategoryList = ({
   isLoading,
   onHandleDelete,
   onHandleUpdate,
-  onHandleView,
 }: Props) => {
   const { setFalse, setTrue, value } = useBoolean(false);
   const [deleteID, setDeleteID] = useState("");
@@ -83,6 +82,7 @@ const TableRowCategoryList = ({
         },
       }),
     ],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [data]
   );
   return (

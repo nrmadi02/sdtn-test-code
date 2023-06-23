@@ -1,6 +1,6 @@
 
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import { Control, Controller } from "react-hook-form";
+import { type Control, Controller } from "react-hook-form";
 import Editor from "../Editor";
 
 interface Props {

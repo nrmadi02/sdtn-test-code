@@ -7,12 +7,14 @@ const Index = () => {
 
   useEffect(() => {
     if (pathname === PATH_DASHBOARD.root) {
-      replace(PATH_DASHBOARD.general.home).catch(_ => "err router...");
+      replace(PATH_DASHBOARD.general.home).catch((_) => "err router...");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   useEffect(() => {
     prefetch(PATH_DASHBOARD.general.home).catch((_) => "err router...");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return null;

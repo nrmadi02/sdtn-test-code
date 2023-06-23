@@ -8,14 +8,14 @@ import { TableHeaderUserList, TableRowUserList } from "@/sections/user/list";
 import { deleteUserFn, getUsersListFn } from "@/service/user";
 import { type IPaginationUser } from "@/types";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { PaginationState } from "@tanstack/react-table";
+import { type PaginationState } from "@tanstack/react-table";
 import Link from "next/link";
 import { useDebounce } from "usehooks-ts";
 import {
   useState,
   type ReactNode,
   useMemo,
-  ChangeEvent,
+  type ChangeEvent,
   useEffect,
 } from "react";
 import { useRouter } from "next/router";
@@ -48,7 +48,7 @@ const UserList = () => {
   const { data: dataUsers, isLoading, refetch } = useQuery(
     ["allUsers", searchParams, pageIndex, pageSize],
     {
-      queryFn: async (ctx) =>
+      queryFn: async () =>
         await getUsersListFn({
           ...searchParams,
           limit: pageSize,

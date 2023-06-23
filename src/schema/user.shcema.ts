@@ -1,4 +1,4 @@
-import { TypeOf, z } from "zod";
+import { type TypeOf, z } from "zod";
 
 export const userNewSchema = z.object({
   email: z.string().min(1, "Email is required!").email("Email is invalid"),

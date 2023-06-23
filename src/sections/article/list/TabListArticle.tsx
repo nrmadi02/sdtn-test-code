@@ -1,4 +1,3 @@
-import { StatusArticle } from "@/types";
 import { Tab } from "@headlessui/react";
 
 function classNames(...classes: string[]) {
@@ -21,7 +20,7 @@ const TabListArticle = ({onHandleChangeTab}: Props) => {
           {tabList.map((item, idx) => {
             return (
               <Tab
-                key={item}
+                key={idx}
                 className={({ selected }) =>
                   classNames(
                     "w-full rounded-lg py-2.5 text-[14px] leading-5 text-gray-500 transition-all ",

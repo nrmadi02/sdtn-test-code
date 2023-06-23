@@ -7,7 +7,7 @@ import { getArticleDetailFn } from "@/service/article";
 import { BaseButton } from "@/components/Button";
 import Markdown from "@/components/Markdown";
 import Spinner from "@/components/Spinner";
-import { StatusArticle } from "@/types";
+import { type StatusArticle } from "@/types";
 
 const getBadgeStatus = (status: StatusArticle) => {
   type typeOption = {
@@ -40,7 +40,7 @@ const ArticleViewPage = () => {
   const { data: dataArticle, isLoading } = useQuery(
     ["detailArticle", query.id],
     {
-      queryFn: async (ctx) => await getArticleDetailFn(String(query.id)),
+      queryFn: async () => await getArticleDetailFn(String(query.id)),
     }
   );
 

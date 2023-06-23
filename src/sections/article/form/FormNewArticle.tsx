@@ -3,14 +3,14 @@ import Spinner from "@/components/Spinner";
 import { RHFEditor, RHFInputText, RHFMultiSelect, RHFSelect, RHFTextarea } from "@/components/hook-form";
 import useUploadImage from "@/hooks/useUploadImage";
 import { PATH_DASHBOARD } from "@/routes";
-import { ArticleNewSchema, articleNewSchema } from "@/schema/article.schema";
+import { type ArticleNewSchema, articleNewSchema } from "@/schema/article.schema";
 import { addNewArticleFn } from "@/service/article";
 import { getAllCategoryFn } from "@/service/category";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import { useSnackbar } from "notistack";
-import { ChangeEvent, useEffect, useMemo, useState } from "react";
+import { type ChangeEvent, useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { IoMdAdd } from "react-icons/io";
 
@@ -19,7 +19,7 @@ const FormNewCategory = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   const [file, setFile] = useState("");
-  const {onHandleChange: onHandleUploadImage, data, isLoading, isSuccess} = useUploadImage()
+  const {onHandleChange: onHandleUploadImage, data, isLoading} = useUploadImage()
 
   const method = useForm<ArticleNewSchema>({
     resolver: zodResolver(articleNewSchema),
@@ -69,12 +69,12 @@ const FormNewCategory = () => {
   };
 
    const { data: dataCategory } = useQuery(["AllCategory"], {
-     queryFn: async (ctx) => await getAllCategoryFn(),
+     queryFn: async () => await getAllCategoryFn(),
      // keepPreviousData: true,
    });
 
    const dataOption = useMemo(() => {
-     return dataCategory?.data.docs.map((item, idx) => {
+     return dataCategory?.data.docs.map((item) => {
        return {
          value: item._id,
          label: item.name,
@@ -83,10 +83,11 @@ const FormNewCategory = () => {
    }, [dataCategory]);
 
   useEffect(() => {
-    if(data){
+    if (data) {
       data && setFile(data.url);
-      setValue("thumbnail", data.url)
+      setValue("thumbnail", data.url);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   return (

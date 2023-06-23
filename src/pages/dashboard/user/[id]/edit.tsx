@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 const UserEditPage = () => {
   const { query } = useRouter();
   const { data: dataUser, isLoading } = useQuery(["detailUser", query.id], {
-    queryFn: async (ctx) => await getUserDetailFn(String(query.id)),
+    queryFn: async () => await getUserDetailFn(String(query.id)),
   });
 
   return (

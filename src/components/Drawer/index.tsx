@@ -1,4 +1,4 @@
-import { Dispatch, Fragment, type ReactNode, type SetStateAction } from "react";
+import { type Dispatch, Fragment, type ReactNode, type SetStateAction } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
 type DrawerProps = {

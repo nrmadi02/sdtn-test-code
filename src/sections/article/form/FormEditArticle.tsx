@@ -3,16 +3,15 @@ import Spinner from "@/components/Spinner";
 import { RHFEditor, RHFInputText, RHFMultiSelect, RHFSelect, RHFTextarea } from "@/components/hook-form";
 import useUploadImage from "@/hooks/useUploadImage";
 import { PATH_DASHBOARD } from "@/routes";
-import { ArticleEditSchema, articleEditSchema } from "@/schema/article.schema";
-import {  categoryEditSchema } from "@/schema/category.schema";
+import { type ArticleEditSchema, articleEditSchema } from "@/schema/article.schema";
 import { editArticleFn } from "@/service/article";
 import {  getAllCategoryFn } from "@/service/category";
-import { IArticle } from "@/types";
+import { type IArticle } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import { useSnackbar } from "notistack";
-import { ChangeEvent, useEffect, useMemo, useState } from "react";
+import { type ChangeEvent, useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { IoMdAdd } from "react-icons/io";
 
@@ -29,7 +28,6 @@ const FormEditArticle = ({ currentArticle }: Props) => {
     onHandleChange: onHandleUploadImage,
     data,
     isLoading,
-    isSuccess,
   } = useUploadImage();
 
   const handleChangeFile = async (
@@ -93,12 +91,12 @@ const FormEditArticle = ({ currentArticle }: Props) => {
   });
 
    const { data: dataCategory } = useQuery(["AllCategory"], {
-     queryFn: async (ctx) => await getAllCategoryFn(),
+     queryFn: async () => await getAllCategoryFn(),
      // keepPreviousData: true,
    });
 
    const dataOption = useMemo(() => {
-     return dataCategory?.data.docs.map((item, idx) => {
+     return dataCategory?.data.docs.map((item) => {
        return {
          value: item._id,
          label: item.name,
@@ -123,6 +121,8 @@ const FormEditArticle = ({ currentArticle }: Props) => {
       data && setFile(data.url);
       setValue("thumbnail", data.url);
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   return (

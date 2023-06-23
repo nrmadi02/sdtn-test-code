@@ -1,8 +1,8 @@
 import { PATH_DASHBOARD } from "@/routes";
-import { IArticle, ICategory, StatusArticle } from "@/types";
+import type { IArticle, ICategory, StatusArticle } from "@/types";
 import moment from "moment";
 import Link from "next/link";
-import { Dispatch, ReactNode, SetStateAction, useMemo } from "react";
+import { type Dispatch, type ReactNode, type SetStateAction, useMemo } from "react";
 import ArticleCardAction from "./ArticleCardAction";
 import { ActionButton } from "@/components/Button";
 import { MdDelete, MdEdit } from "react-icons/md";
@@ -53,13 +53,15 @@ const ArticleCard = ({
 
   const useCategoriesArticle = (data: string[]) =>
     useMemo(() => {
-      const dataArr = data.map((item, idx) => {
+      const dataArr = data.map((item) => {
         return categories?.find((itm) => {
-          return itm._id == item
+          return itm._id == item;
         })?.name;
-      })
+      });
 
       return dataArr.length !== 0 ? dataArr.join(", ") : "";
+      
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [categories]);
 
   return (
@@ -78,7 +80,7 @@ const ArticleCard = ({
             </span>
           </div>
           <div className="mt-4">
-            <Link href={PATH_DASHBOARD.article.view(article._id, article.slug)}>
+            <Link href={PATH_DASHBOARD.article.view(article._id)}>
               <p className="text-overflow-article overflow-hidden text-ellipsis text-[14px] font-semibold hover:underline ">
                 {article.title}
               </p>

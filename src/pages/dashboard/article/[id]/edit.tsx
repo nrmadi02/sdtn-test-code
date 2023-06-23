@@ -13,7 +13,7 @@ const ArticleEditPage = () => {
   const { data: dataArticle, isLoading } = useQuery(
     ["detailArticle", query.id],
     {
-      queryFn: async (ctx) => await getArticleDetailFn(String(query.id)),
+      queryFn: async () => await getArticleDetailFn(String(query.id)),
     }
   );
 

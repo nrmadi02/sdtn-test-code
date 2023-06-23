@@ -2,23 +2,17 @@ import { RHFInputPassword, RHFInputText } from "@/components/hook-form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSnackbar } from "notistack";
-import * as z from "zod";
-import { LoginInput, loginSchema } from "@/schema/login.schema";
+import { type LoginInput, loginSchema } from "@/schema/login.schema";
 import { BaseButton } from "@/components/Button";
-import { useRouter } from "next/router";
-import { PATH_AUTH } from "@/routes";
 import useAuth from "@/hooks/useAuth";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 
 const LoginForm = () => {
-  const { push } = useRouter();
   const { enqueueSnackbar } = useSnackbar();
 
   const { login } = useAuth();
 
   const {
-    reset,
-    setError,
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
