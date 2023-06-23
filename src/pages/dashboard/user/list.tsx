@@ -110,7 +110,9 @@ const UserList = () => {
   };
 
   const handleViewData = (id: string) => {
-    console.log(id)
+    push(PATH_DASHBOARD.user.view(id)).catch((_) =>
+      console.log("err router...")
+    );
   };
 
   useEffect(() => {

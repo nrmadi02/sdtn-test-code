@@ -92,7 +92,7 @@ const HeaderListArticle = ({
                 leaveFrom="opacity-100 translate-y-0"
                 leaveTo="opacity-0 translate-y-1"
               >
-                <Popover.Panel className="absolute left-1/2 z-10 mt-3 -translate-x-1/2 transform rounded-lg border-[1px] border-gray-400 p-3 shadow-sm">
+                <Popover.Panel className="absolute left-1/2 z-10 mt-3 -translate-x-1/2 transform rounded-lg border-[1px] bg-white border-gray-400 p-3 shadow-sm">
                   <ActionButton
                     onClick={() => onHandleSearchSort("desc")}
                     variant="ghost"
